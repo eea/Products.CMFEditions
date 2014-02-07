@@ -2,7 +2,7 @@ Changelog
 =========
 
 2.2.10 (unreleased)
------------------------
+-------------------
 
 - Drop the acquisition wrapper for the objects (if any) in the clone operation
   [olimpiurob]
