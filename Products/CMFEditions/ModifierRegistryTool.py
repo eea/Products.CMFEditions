@@ -30,7 +30,7 @@ from zope.interface import implements
 from App.class_init import InitializeClass
 from Missing import MV
 
-from Acquisition import aq_base
+from Acquisition import aq_base, ImplicitAcquisitionWrapper
 from AccessControl import ClassSecurityInfo
 from OFS.OrderedFolder import OrderedFolder
 
@@ -199,6 +199,10 @@ class ModifierRegistryTool(UniqueObject, OrderedFolder):
                 pers_load_byname[id] = clone_mod[1]
 
         def persistent_id(obj):
+            # XXX Drop the acquisitionwrapper of the obj if any
+            if isinstance(obj, ImplicitAcquisitionWrapper):
+                obj = aq_base(obj)
+
             # loop over modifiers having a persistent_id callback
             for pers_id in pers_id_list:
                 pid = pers_id(obj)

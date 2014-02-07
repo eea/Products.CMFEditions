@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.2.10 (unreleased)
--------------------
+2.2.10.eea (2014-02-07)
+-----------------------
 
-- Nothing changed yet.
-
+- Drop the acquisition wrapper for the objects (if any) in the clone operation
+  [olimpiurob]
 
 2.2.9 (2013-12-07)
 ------------------
